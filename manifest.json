@@ -1,10 +1,10 @@
 {
     "manifest_version": 3,
-    "name": "Reading time",
-    "version": "1.1",
+    "name": "Reading time and tab manager",
+    "version": "1.2",
     "description": "Add the reading time to Chrome Extension documentation articles",
     "action": {
-        "default_popup": "popups/hello.html",
+        "default_popup": "popups/popup.html",
         "default_icon": "images/logo.png"
     },
     "icons": {
@@ -15,11 +15,19 @@
     },
     "content_scripts": [
         {
-          "js": ["scripts/content.js"],
-          "matches": [
-            "https://developer.chrome.com/docs/extensions/*",
-            "https://developer.chrome.com/docs/webstore/*"
-          ]
+            "js": [
+                "scripts/content.js"
+            ],
+            "matches": [
+                "https://developer.chrome.com/docs/extensions/*",
+                "https://developer.chrome.com/docs/webstore/*"
+            ]
         }
-      ]
+    ],
+    "host_permissions": [
+        "https://developer.chrome.com/*"
+    ],
+    "permissions": [
+        "tabGroups"
+    ]
 }
